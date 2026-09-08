@@ -242,4 +242,12 @@ Feel free to open an issue or submit a pull request.
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project's own source code is licensed under the [MIT License](LICENSE).
+
+> ⚠️ **Third-party license note:** runtime distributions also include
+> `PyMuPDF` (`AGPL-3.0 OR Artifex Commercial`), imported as `fitz` across the
+> render path (`rendering/typst/page_ops.py`, `rendering/redaction/*`). MIT on
+> our files does not override AGPL on that dependency. Distributing binaries /
+> Docker images containing PyMuPDF requires AGPL §§4–6 + §13 compliance
+> (Corresponding Source + notices), unless you hold a commercial PyMuPDF
+> license. See [NOTICE](NOTICE) for details.

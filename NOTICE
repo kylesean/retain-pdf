@@ -1,0 +1,47 @@
+# Third-Party Notices
+
+RetainPDF's own source code is licensed under the MIT License (see `LICENSE`).
+
+However, this project depends at runtime on third-party components under
+their own licenses. When you distribute binaries or Docker images built from
+this repository, the combined work is subject to those licenses as well.
+
+## PyMuPDF (AGPL-3.0) — IMPORTANT
+
+- Package: `PyMuPDF==1.26.5` (`pyproject.toml`), imported as `fitz` in
+  30+ files across the render path, e.g.
+  `backend/scripts/services/rendering/typst/page_ops.py`
+  (`show_pdf_page(overlay=True)`),
+  `backend/scripts/services/rendering/redaction/redaction_fill.py`,
+  `backend/scripts/services/rendering/typst/overlay_ops.py`,
+  `backend/scripts/services/rendering/background/*`.
+- License: Dual Licensed — GNU AFFERO General Public License v3.0 (AGPL-3.0)
+  OR Artifex Commercial License.
+- Upstream: https://github.com/pymupdf/PyMuPDF/blob/main/COPYING
+- License text: https://www.gnu.org/licenses/agpl-3.0.en.html
+- Commercial licensing: https://artifex.com/licensing
+
+What this means (non-legal summary):
+
+- MIT covers RetainPDF's own files only; it does not override AGPL on the
+  `PyMuPDF` dependency.
+- If you distribute builds/images containing PyMuPDF (desktop installers,
+  `docker/delivery/`, Docker Hub images), the combined distribution must
+  comply with AGPL-3.0 §§4–6 (Corresponding Source + license notices) and
+  §13 (network use source offer), unless you obtained a commercial license
+  from Artifex.
+- Closed-source distributors must either buy a commercial PyMuPDF license
+  or replace the `fitz`-based PDF ops layer (e.g. with
+  https://github.com/pypdfium2-team/pypdfium2 behind an interface).
+
+## Other bundled runtime components
+
+- Typst (external binary, `pyproject.toml [tool.retain_pdf.external-binaries]`):
+  Apache-2.0 — https://github.com/typst/typst
+- pikepdf 7.2.0: MPL-2.0 — https://github.com/pikepdf/pikepdf
+- Pillow 10.4.0: HPND (permissive) — https://github.com/python-pillow/Pillow
+- pdf-lib / pdf.js (frontend preview & compare merge): Apache-2.0 / MIT
+- Source Han Serif SC fonts (`backend/fonts/`): SIL OFL 1.1
+
+If in doubt, consult a lawyer. Only the copyright holders (e.g. Artifex for
+PyMuPDF/MuPDF) can grant exceptions or enforce their licenses.

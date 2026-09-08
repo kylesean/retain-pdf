@@ -207,4 +207,6 @@ retain-pdf/
 
 ## 开源协议
 
-本项目采用 [MIT License](LICENSE) 开源协议。
+本项目自身源代码采用 [MIT License](LICENSE) 开源协议。
+
+> ⚠️ **第三方许可说明：** 运行时分发物还包含 `PyMuPDF`（`AGPL-3.0 或 Artifex 商业授权`），以 `fitz` 形式被排版渲染链路（`rendering/typst/page_ops.py`、`rendering/redaction/*` 等 30 余处）直接链接调用。自身代码的 MIT 不能覆盖该依赖的 AGPL。分发含 PyMuPDF 的安装包 / Docker 镜像时，须遵守 AGPL §§4–6 + §13（提供对应源码与声明），或持有 Artifex 商业授权。详见 [NOTICE](NOTICE)。
